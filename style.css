@@ -1,0 +1,250 @@
+
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(252, 247, 247);
+    font-family: 'calibri';
+}
+marquee{
+  margin-top: 30px;
+  color: #6907fa;
+  font-size: 3.5vw;
+
+}
+#rideau-intro{
+  position: fixed;
+  background-color:transparent;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#rideau-intro #options {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  min-width: 60%;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,50%);
+}
+#rideau-intro #options button {
+  font-family: Calibri;
+  color: aliceblue;
+  background-color: #6907fa;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 0.5em;
+  margin: 10px;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+#rideau-intro #options button:hover{
+  padding:0.75em ;
+  color: #6907fa;
+  background-color: aliceblue;
+
+}
+#control-level{
+  display: none;
+  margin-top: 25px;
+}
+#control-level button{
+  font-family: Calibri;
+  color: white;
+  background-color: #6907fa;
+  font-size: 15px;
+  padding: 0.5em;
+  margin: 10px;
+  border-radius: 10px;
+}
+.fixed-button {
+  position: fixed;
+  top: 11vh; /* 50% de la hauteur de l'écran */
+  left: 2vw; /* 2% de la largeur de l'écran */
+  z-index:1000;
+  transition: transform 0.5s ease-in-out;
+}
+
+.fixed-button button {
+  margin-left: 0.1vw; /* 1% de la largeur de l'écran */
+  transform: translateX(-55);
+  transition: transform 0.5s ease-in-out;
+}
+
+.fixed-button:hover button {
+  transform: translateX(0);
+}
+
+.fixed-button button:hover {
+  transform: translateX(0);
+}
+#optl3 {
+  display: none;
+}
+#aboutl3{
+  display: none;
+}
+#tableau-l3{
+  display: none;
+}
+#head{ display: flex;
+justify-content: space-around;
+width: 100%;
+min-width: 480px;
+}
+.tableau{
+  min-width: 1100px;
+  display: flex;
+  justify-content: center;
+}
+table img
+{
+height: 20px;
+width: 20px;
+margin: 3px;
+}
+.tableau a{ 
+  display: flex;
+background-color: #6907fa;
+color: aliceblue;
+justify-content: center;
+font-size: 15px;
+padding: 5%;
+border-radius: 10px;
+}
+steve{
+ width: 30%;
+}
+table
+{
+  min-width: 1100px;
+  width: 70%;
+    margin-top: 1%;
+    margin-left: 3px;
+   box-shadow: 10px 20px 30px  black;
+   border-collapse: collapse;
+   
+}
+#head img
+{ display: flex;
+  flex-direction: column;
+   margin-right:14vw; 
+    width: 6vw;
+   border-radius: 100%;
+   box-shadow: 10px 10PX 100px black;
+   transition:background-color 1s;
+   margin-left: 2vw;
+}
+#head img:hover{
+  background-color: #6907fa;
+}
+#head a {
+  font-size: 15px;
+}
+td
+{ width: 16vw;
+  padding: 3px; 
+   border: 1px solid rgba(3, 3, 5, 0.193);
+    text-align: center;
+    border-collapse: collapse;
+    transition-duration: 0.5s;
+}
+tr
+{   color: black;  
+    transition-duration: 0.5s;
+}
+th
+{ padding-top: 2vh;
+  padding-bottom: 2vh;
+    background-color: #6907fa;
+    border: 2px rgb(66, 73, 158);
+    font-size: larger;
+    color: aliceblue;
+}
+tr:hover:not(.headtab)
+{
+  background-color:  #6907fa;
+  color: azure;
+  box-shadow: 10px 10px 20px black;
+ 
+}
+td:hover{
+  color: white;
+  font-size: 1.5em;
+}
+.head_img
+{
+  display:flex ;
+  width: 10vw;
+  flex-direction: column;
+
+
+}
+a{
+  text-decoration: none ;
+ color: black;
+ font-family: 'calibri'
+  
+}
+.head_img :hover{
+  transform: scale(1.1,1.1);
+ 
+}
+
+.titre{
+  display: block;
+  text-align: center;
+  max-width: 10vw;
+}
+.about{
+
+  width: calc(max(350px,40vw));
+  color: rgb(232, 244, 244);
+   background-color: #6907fa; 
+   border-radius: 30px;
+   padding: 4%;
+   font-family: "Poppins", Arial, sans-serif;
+   font-size: 16px;
+   line-height: 1.8;
+   font-weight: normal;
+}
+.boutons{
+  width: 64%;
+  margin-top: 1%;
+display: flex;
+justify-content: space-between;
+
+}
+.bouton{
+  display: flex;
+  justify-content: center;
+  background-color: #6907fa;
+  color: rgb(229, 233, 236);
+  font-size: larger;
+ 
+  width: 100px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+
+  border-radius: 10px;
+
+}
+.particulier{
+  font-weight: bold;
+}
+h1{
+  margin-top: 8%; 
+  font-size: 28px;
+    color: #6610f2;
+    line-height: 1.5;
+    font-weight: 400;
+    font-family: "Poppins", Arial, sans-serif;
+}
+#presentation{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+align-items: center;
+}

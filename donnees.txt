@@ -1,0 +1,2 @@
+simo,informatique,UD, 250
+miguel, iia, iug ,300
