@@ -20,6 +20,72 @@ personnal.style.display = "none";
 us_team.style.display='none';
 head.style.minWidth='350px'
 
+
+
+        const videoOverlay = document.getElementById('video-overlay');
+        const introVideo = document.getElementById('intro-video');
+        const skipBtn = document.getElementById('skip-btn');
+        const playBtn = document.getElementById('play-btn');
+        const mainContent = document.getElementById('main-content');
+
+        // Fonction pour arrêter et masquer la vidéo
+        function stopAndHideVideo() {
+            // Arrêter la vidéo
+            introVideo.pause();
+            introVideo.currentTime = 0;
+            
+            // Libérer les ressources (optionnel mais recommandé)
+            introVideo.src = '';
+            introVideo.load();
+            
+            // Masquer l'overlay
+            videoOverlay.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+        }
+
+        // Fonction pour démarrer la vidéo
+        async function startVideo() {
+            try {
+                playBtn.classList.add('hidden');
+                await introVideo.play();
+            } catch (error) {
+                console.log('Erreur de lecture:', error);
+                playBtn.classList.remove('hidden');
+            }
+        }
+
+        // Événements
+        introVideo.addEventListener('ended', stopAndHideVideo);
+        skipBtn.addEventListener('click', stopAndHideVideo);
+        playBtn.addEventListener('click', startVideo);
+
+        // Tentative de lecture automatique au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Petit délai pour laisser le navigateur se préparer
+            setTimeout(startVideo, 100);
+        });
+
+        // Gestion des erreurs vidéo
+        introVideo.addEventListener('error', function() {
+            console.log('Erreur de chargement vidéo');
+            playBtn.classList.remove('hidden');
+        });
+
+        // Re-tentative si la vidéo est prête plus tard
+        introVideo.addEventListener('canplay', function() {
+            startVideo();
+        });
+
+        // Fallback après timeout
+      /*  setTimeout(function() {
+            if (videoOverlay.style.display !== 'none' && introVideo.paused) {
+                console.log('Fallback - affichage direct du site');
+                stopAndHideVideo();
+            }
+        }, 3000);*/
+
+
+
 link1.addEventListener("click", function () {
   head.style.minWidth='350px'
   img1.src="images/step-1-active.png"
