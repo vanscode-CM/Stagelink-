@@ -358,17 +358,42 @@ justify-content: space-between;
 .score-value {
   font-weight: bold;
 }
-.score-guide-row {
+.score-guide {
+  width: min(95vw, 1100px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 8px 0 4px;
+}
+.score-guide-item {
+  border: 1px solid rgba(105, 7, 250, 0.18);
+  border-radius: 8px;
   background-color: #f7f1ff;
   color: #240047;
+  overflow: hidden;
 }
-.score-guide-row td {
+.score-guide-toggle {
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
   font-weight: bold;
 }
-.score-guide-row:hover {
-  background-color: #ede1ff;
-  color: #240047;
-  box-shadow: none;
+.score-guide-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 12px 12px;
+  color: #4f3b70;
+  font-weight: bold;
+  text-align: center;
 }
 .score-value {
   color: #240047;
@@ -471,7 +496,7 @@ align-items: center;
   }
 
   #head {
-    min-width: 0;
+    min-width: 0 !important;
     flex-wrap: wrap;
     gap: 12px;
   }
@@ -550,14 +575,6 @@ align-items: center;
     box-shadow: 0 10px 24px rgba(20, 8, 43, 0.12);
   }
 
-  #tableau-l2 .score-guide-row,
-  #tableau-l3 .score-guide-row,
-  #tableau-l2 .score-guide-row:hover,
-  #tableau-l3 .score-guide-row:hover {
-    background-color: #f7f1ff;
-    color: #240047;
-  }
-
   #tableau-l2 td,
   #tableau-l3 td {
     display: flex;
@@ -608,6 +625,47 @@ align-items: center;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+  }
+
+  .score-guide {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  .score-guide-item {
+    box-shadow: 0 6px 16px rgba(20, 8, 43, 0.08);
+  }
+
+  .score-guide-toggle {
+    min-height: 38px;
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+
+  .score-guide-toggle::after {
+    content: "+";
+    color: #6907fa;
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .score-guide-toggle[aria-expanded="true"]::after {
+    content: "-";
+  }
+
+  .score-guide-panel {
+    display: none;
+    justify-content: space-between;
+    padding: 0 12px 10px;
+    text-align: left;
+  }
+
+  .score-guide-item.open .score-guide-panel {
+    display: flex;
   }
 }
 
