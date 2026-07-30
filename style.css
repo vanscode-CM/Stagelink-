@@ -465,6 +465,32 @@ align-items: center;
 }
 
 @media (max-width: 760px) {
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  #head {
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  #head img {
+    width: 52px;
+    margin: 0 auto;
+  }
+
+  .head_img {
+    width: auto;
+    min-width: 70px;
+  }
+
+  .titre {
+    max-width: 80px;
+    font-size: 12px;
+  }
+
   .tableau {
     min-width: 0;
     width: 100%;
@@ -476,8 +502,112 @@ align-items: center;
     min-width: 720px;
   }
 
+  #page2 .tableau {
+    overflow-x: visible;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  #tableau-l2,
+  #tableau-l3 {
+    min-width: 0;
+    width: 100%;
+    box-shadow: none;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+  }
+
+  #tableau-l2 thead,
+  #tableau-l3 thead {
+    display: none;
+  }
+
+  #tableau-l2 tbody,
+  #tableau-l3 tbody,
+  #tableau-l2 tr,
+  #tableau-l3 tr,
+  #tableau-l2 td,
+  #tableau-l3 td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #tableau-l2 tr,
+  #tableau-l3 tr {
+    margin-bottom: 12px;
+    border: 1px solid rgba(105, 7, 250, 0.18);
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 10px 24px rgba(20, 8, 43, 0.12);
+    overflow: hidden;
+  }
+
+  #tableau-l2 tr:hover,
+  #tableau-l3 tr:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 10px 24px rgba(20, 8, 43, 0.12);
+  }
+
+  #tableau-l2 .score-guide-row,
+  #tableau-l3 .score-guide-row,
+  #tableau-l2 .score-guide-row:hover,
+  #tableau-l3 .score-guide-row:hover {
+    background-color: #f7f1ff;
+    color: #240047;
+  }
+
+  #tableau-l2 td,
+  #tableau-l3 td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 0;
+    border-bottom: 1px solid rgba(3, 3, 5, 0.1);
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+  #tableau-l2 td:last-child,
+  #tableau-l3 td:last-child {
+    border-bottom: 0;
+  }
+
+  #tableau-l2 td::before,
+  #tableau-l3 td::before {
+    content: attr(data-label);
+    flex: 0 0 92px;
+    color: #6907fa;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  #tableau-l2 td:hover,
+  #tableau-l3 td:hover {
+    color: inherit;
+    font-size: inherit;
+  }
+
+  .student-status {
+    min-width: 0;
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .reveal-score-button {
+    width: auto;
+    min-width: 110px;
+  }
+
   .score-controls {
     grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 
