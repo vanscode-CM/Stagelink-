@@ -114,3 +114,336 @@ $("#optl1").click(function (e) {
 $("#optl3").click(function (e) { 
   supprimerEtAfficher("#tableau-l2","#optl3","#aboutl1","#tableau-l3","#optl1","#aboutl3")
 });
+
+const personalScoreTables = Array.from(document.querySelectorAll("#tableau-l2, #tableau-l3"));
+const personalScoreSearch = document.getElementById("personal-score-search");
+const personalScoreFiliere = document.getElementById("personal-score-filiere");
+const personalScoreSortButtons = document.querySelectorAll(".score-sort-button");
+const revealedTopScores = new Set();
+let personalScoreCandidates = [];
+let personalScoreSort = "score";
+
+function normalizeText(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, function (character) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;",
+    }[character];
+  });
+}
+
+function getCandidateKey(candidate) {
+  return `${candidate.matricule}-${candidate.nom}`;
+}
+
+function getStudentStatus(score) {
+  const numericScore = Number(score || 0);
+
+  if (numericScore > 600) {
+    return {
+      label: "Diamond Student",
+      icon: "images/diamond.png",
+      rule: "Plus de 600 points",
+      scoreLabel: "> 600",
+    };
+  }
+
+  if (numericScore >= 300) {
+    return {
+      label: "Gold Student",
+      icon: "images/coin.png",
+      rule: "300 \u00e0 600 points",
+      scoreLabel: ">= 300",
+    };
+  }
+
+  return {
+    label: "Standard Student",
+    icon: "images/dollar.png",
+    rule: "Moins de 300 points",
+    scoreLabel: "< 300",
+  };
+}
+
+function renderStudentStatus(status) {
+  return `
+    <span class="student-status">
+      <img src="${escapeHtml(status.icon)}" alt="${escapeHtml(status.label)}">
+      ${escapeHtml(status.label)}
+    </span>
+  `;
+}
+
+function renderScoreGuideRows() {
+  return [
+    getStudentStatus(0),
+    getStudentStatus(300),
+    getStudentStatus(601),
+  ]
+    .map(function (status) {
+      return `
+        <tr class="score-guide-row">
+          <td class="rank-cell">&#127942;</td>
+          <td class="particulier">Guide</td>
+          <td>${renderStudentStatus(status)}</td>
+          <td>${escapeHtml(status.rule)}</td>
+          <td>Palier de score</td>
+          <td>${escapeHtml(status.scoreLabel)}</td>
+        </tr>
+      `;
+    })
+    .join("");
+}
+
+function getVisiblePersonalScores() {
+  const searchTerm = normalizeText(personalScoreSearch?.value);
+  const filiere = personalScoreFiliere?.value || "";
+
+  const filteredCandidates = personalScoreCandidates.filter(function (candidate) {
+    const matchesName = !searchTerm || normalizeText(candidate.nom).includes(searchTerm);
+    const matchesFiliere = !filiere || candidate.filiere === filiere;
+    return matchesName && matchesFiliere;
+  });
+
+  return filteredCandidates.sort(function (firstCandidate, secondCandidate) {
+    if (personalScoreSort === "name") {
+      return String(firstCandidate.nom).localeCompare(String(secondCandidate.nom), "fr", {
+        sensitivity: "base",
+      });
+    }
+
+    const scoreDifference = Number(secondCandidate.score || 0) - Number(firstCandidate.score || 0);
+    if (scoreDifference !== 0) {
+      return scoreDifference;
+    }
+
+    return String(firstCandidate.nom).localeCompare(String(secondCandidate.nom), "fr", {
+      sensitivity: "base",
+    });
+  });
+}
+
+function renderPersonalScores() {
+  if (personalScoreTables.length === 0) {
+    return;
+  }
+
+  const visibleCandidates = getVisiblePersonalScores();
+
+  const rows = visibleCandidates
+    .map(function (candidate, index) {
+      const rank = index + 1;
+      const candidateKey = getCandidateKey(candidate);
+      const status = getStudentStatus(candidate.score);
+      const shouldMaskScore = rank <= 10 && !revealedTopScores.has(candidateKey);
+      const scoreContent = shouldMaskScore
+        ? `<button type="button" class="reveal-score-button" data-candidate-key="${escapeHtml(
+            candidateKey
+          )}">Reveal</button>`
+        : `<span class="score-value">${escapeHtml(candidate.score)} pts</span>`;
+
+      return `
+        <tr>
+          <td class="rank-cell">${rank}</td>
+          <td class="particulier">${escapeHtml(candidate.nom)}</td>
+          <td>${renderStudentStatus(status)}</td>
+          <td>${escapeHtml(candidate.filiere)}</td>
+          <td>${escapeHtml(candidate.universite)}</td>
+          <td>${scoreContent}</td>
+        </tr>
+      `;
+    })
+    .join("");
+
+  const tableContent = `
+    <thead>
+      <tr>
+        <th>Rang</th>
+        <th>Nom</th>
+        <th>STATUT</th>
+        <th>Filiere</th>
+        <th>Universite</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${renderScoreGuideRows()}
+      ${
+        rows ||
+        `<tr><td colspan="6" class="score-empty-state">No candidate found.</td></tr>`
+      }
+    </tbody>
+  `;
+
+  personalScoreTables.forEach(function (scoreTable) {
+    scoreTable.innerHTML = tableContent;
+  });
+}
+
+function fillFiliereFilter() {
+  if (!personalScoreFiliere) {
+    return;
+  }
+
+  const filieres = Array.from(
+    new Set(personalScoreCandidates.map(function (candidate) {
+      return candidate.filiere;
+    }).filter(Boolean))
+  ).sort(function (firstFiliere, secondFiliere) {
+    return firstFiliere.localeCompare(secondFiliere, "fr", { sensitivity: "base" });
+  });
+
+  personalScoreFiliere.innerHTML = '<option value="">All filieres</option>';
+  filieres.forEach(function (filiere) {
+    const option = document.createElement("option");
+    option.value = filiere;
+    option.textContent = filiere;
+    personalScoreFiliere.appendChild(option);
+  });
+}
+
+function launchConfetti() {
+  const confettiLayer = document.createElement("div");
+  confettiLayer.className = "confetti-layer";
+  document.body.appendChild(confettiLayer);
+
+  for (let index = 0; index < 120; index += 1) {
+    const confetti = document.createElement("span");
+    confetti.className = "confetti-piece";
+    confetti.style.left = `${Math.random() * 100}%`;
+    confetti.style.backgroundColor = ["#6907fa", "#ffbe0b", "#fb5607", "#06d6a0", "#3a86ff"][
+      index % 5
+    ];
+    confetti.style.animationDelay = `${Math.random() * 0.7}s`;
+    confetti.style.animationDuration = `${2.2 + Math.random() * 1.8}s`;
+    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+    confettiLayer.appendChild(confetti);
+  }
+
+  setTimeout(function () {
+    confettiLayer.remove();
+  }, 4500);
+}
+
+function showScorePopup(candidate) {
+  const existingPopup = document.querySelector(".score-popup-backdrop");
+  if (existingPopup) {
+    existingPopup.remove();
+  }
+
+  const popup = document.createElement("div");
+  popup.className = "score-popup-backdrop";
+  popup.innerHTML = `
+    <div class="score-popup" role="dialog" aria-modal="true" aria-labelledby="score-popup-title">
+      <div class="score-trophy" aria-hidden="true">&#127942;</div>
+      <p class="score-popup-kicker">Congratulations candidate</p>
+      <h2 id="score-popup-title">${escapeHtml(candidate.nom)}</h2>
+      <p class="score-popup-points">${escapeHtml(candidate.score)} points</p>
+      <button type="button" class="score-popup-close">Close</button>
+    </div>
+  `;
+  document.body.appendChild(popup);
+
+  popup.querySelector(".score-popup-close").focus();
+  popup.addEventListener("click", function (event) {
+    if (
+      event.target.classList.contains("score-popup-backdrop") ||
+      event.target.classList.contains("score-popup-close")
+    ) {
+      popup.remove();
+    }
+  });
+}
+
+function revealCandidateScore(candidateKey) {
+  const candidate = personalScoreCandidates.find(function (item) {
+    return getCandidateKey(item) === candidateKey;
+  });
+
+  if (!candidate) {
+    return;
+  }
+
+  revealedTopScores.add(candidateKey);
+  renderPersonalScores();
+  launchConfetti();
+  showScorePopup(candidate);
+}
+
+function bindPersonalScoreEvents() {
+  personalScoreSearch?.addEventListener("input", renderPersonalScores);
+  personalScoreFiliere?.addEventListener("change", renderPersonalScores);
+  personalScoreSortButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      personalScoreSort = button.dataset.sort;
+      personalScoreSortButtons.forEach(function (sortButton) {
+        sortButton.classList.toggle("active", sortButton === button);
+      });
+      renderPersonalScores();
+    });
+  });
+
+  personalScoreTables.forEach(function (scoreTable) {
+    scoreTable.addEventListener("click", function (event) {
+      const revealButton = event.target.closest(".reveal-score-button");
+      if (revealButton) {
+        revealCandidateScore(revealButton.dataset.candidateKey);
+      }
+    });
+  });
+}
+
+function loadPersonalScores() {
+  if (personalScoreTables.length === 0) {
+    return;
+  }
+
+  if (personalScoreSearch) {
+    personalScoreSearch.value = "";
+  }
+  if (personalScoreFiliere) {
+    personalScoreFiliere.value = "";
+  }
+  personalScoreSort = "score";
+  personalScoreSortButtons.forEach(function (sortButton) {
+    sortButton.classList.toggle("active", sortButton.dataset.sort === "score");
+  });
+
+  personalScoreTables.forEach(function (scoreTable) {
+    scoreTable.innerHTML =
+      '<tbody><tr><td class="score-empty-state">Loading personal scores...</td></tr></tbody>';
+  });
+
+  fetch("data/stagelink_points.json")
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error("Unable to load personal scores");
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      personalScoreCandidates = Array.isArray(data.candidates) ? data.candidates : [];
+      fillFiliereFilter();
+      renderPersonalScores();
+    })
+    .catch(function () {
+      personalScoreTables.forEach(function (scoreTable) {
+        scoreTable.innerHTML =
+          '<tbody><tr><td class="score-empty-state">Personal scores are currently unavailable.</td></tr></tbody>';
+      });
+    });
+}
+
+bindPersonalScoreEvents();
+loadPersonalScores();
