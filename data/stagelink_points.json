@@ -1,0 +1,1064 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-30T15:07:27",
+  "candidate_count": 151,
+  "candidates": [
+      {
+        "matricule": "1",
+        "nom": "MOUGOUE NENKO PRESTON MARC",
+        "filiere": "GL",
+        "universite": "IUGET",
+        "score": 35
+      },
+      {
+        "matricule": "2",
+        "nom": "EYINGA MONEYONDO WILL PHARELL",
+        "filiere": "GL",
+        "universite": "IUGET",
+        "score": 35
+      },
+      {
+        "matricule": "3",
+        "nom": "TSOMEYI LONTCHI HERMAN",
+        "filiere": "GL",
+        "universite": "IUG",
+        "score": 40
+      },
+      {
+        "matricule": "4",
+        "nom": "MBOUOMBONO NGOUH ABDEL",
+        "filiere": "GL",
+        "universite": "IUGET",
+        "score": 0
+      },
+      {
+        "matricule": "5",
+        "nom": "FEUNOU MAEVA",
+        "filiere": "GL",
+        "universite": "INSAM",
+        "score": 40
+      },
+      {
+        "matricule": "6",
+        "nom": "AGHOUKENG LUMIERE",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 20
+      },
+      {
+        "matricule": "7",
+        "nom": "WAINGI MACBRIDE NJEUYOH KENDONG",
+        "filiere": "GR",
+        "universite": "IUGET",
+        "score": 64
+      },
+      {
+        "matricule": "8",
+        "nom": "EPIE LONGE MESMITH",
+        "filiere": "GR",
+        "universite": "IUGET",
+        "score": 0
+      },
+      {
+        "matricule": "9",
+        "nom": "MALEA ATINDA WELISANE",
+        "filiere": "GR",
+        "universite": "IUGET",
+        "score": 0
+      },
+      {
+        "matricule": "10",
+        "nom": "ALIMA FOUDA SABINE ELEONORE",
+        "filiere": "GR",
+        "universite": "IUGET",
+        "score": 0
+      },
+      {
+        "matricule": "12",
+        "nom": "NGOUNGERE KENTOUA TRISTAN",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 0
+      },
+      {
+        "matricule": "13",
+        "nom": "TENEKAMTE MBEH YVAN JUNIOR",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 15
+      },
+      {
+        "matricule": "14",
+        "nom": "KENLA TENZAM LEREON",
+        "filiere": "GR",
+        "universite": "IUGET",
+        "score": 0
+      },
+      {
+        "matricule": "15",
+        "nom": "OUTO CEDRIC",
+        "filiere": "GR",
+        "universite": "IUGET",
+        "score": 0
+      },
+      {
+        "matricule": "16",
+        "nom": "KOUAMO NONO ERIC",
+        "filiere": "GE",
+        "universite": "IUG",
+        "score": 0
+      },
+      {
+        "matricule": "17",
+        "nom": "MAMBANI GOMTSE JEANETTE",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 30
+      },
+      {
+        "matricule": "18",
+        "nom": "TAGOUFO FOKOU LOYIQUE",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 0
+      },
+      {
+        "matricule": "19",
+        "nom": "MBARGA BEKONO MICHAEL",
+        "filiere": "GE",
+        "universite": "IUG",
+        "score": 5
+      },
+      {
+        "matricule": "20",
+        "nom": "MAKOLE LOIC PATRICK",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 10
+      },
+      {
+        "matricule": "21",
+        "nom": "NTOKA NDASSA RAYAN",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 20
+      },
+      {
+        "matricule": "22",
+        "nom": "NKE NDZANA DANIEL CALEB",
+        "filiere": "GL",
+        "universite": "IUGET",
+        "score": 0
+      },
+      {
+        "matricule": "23",
+        "nom": "SIKOHA YOUNANG ISRAELLA",
+        "filiere": "GE",
+        "universite": "EST LA SALLE",
+        "score": 35
+      },
+      {
+        "matricule": "24",
+        "nom": "VEPOWO NGNONGUINI BERGSON",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 40
+      },
+      {
+        "matricule": "25",
+        "nom": "DINANGUE NIBA FABRICE",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 0
+      },
+      {
+        "matricule": "26",
+        "nom": "NEMBOT GODWIN SALOMON",
+        "filiere": "GE",
+        "universite": "IUG",
+        "score": 0
+      },
+      {
+        "matricule": "27",
+        "nom": "KADIF NDJOYA ERWAN",
+        "filiere": "GL",
+        "universite": "IUGET",
+        "score": 30
+      },
+      {
+        "matricule": "28",
+        "nom": "DEMPOWO TSOMEDJIO ULRICH",
+        "filiere": "GL",
+        "universite": "IUGET",
+        "score": 20
+      },
+      {
+        "matricule": "29",
+        "nom": "MOUMENI NOUBISSIE ZAINA",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 15
+      },
+      {
+        "matricule": "31",
+        "nom": "TCHAWE NSANKOU FRANCK CABREL",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 0
+      },
+      {
+        "matricule": "32",
+        "nom": "NONO WALDER NADAL",
+        "filiere": "GL",
+        "universite": "IUGET",
+        "score": 0
+      },
+      {
+        "matricule": "33",
+        "nom": "MBEA TCHOUATIEU PIERRE",
+        "filiere": "GR",
+        "universite": "IUGET",
+        "score": 62
+      },
+      {
+        "matricule": "34",
+        "nom": "NGWA BONGNWI PRAISE MBOE",
+        "filiere": "GR",
+        "universite": "IUGET",
+        "score": 0
+      },
+      {
+        "matricule": "37",
+        "nom": "TCHUINDJGANG NOELLA",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 40
+      },
+      {
+        "matricule": "38",
+        "nom": "SOUOP PASCAL ULRICH",
+        "filiere": "GE",
+        "universite": "EST LA SALLE",
+        "score": 45
+      },
+      {
+        "matricule": "39",
+        "nom": "NGANTCHUI TIENTCHEU FRED",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 54
+      },
+      {
+        "matricule": "40",
+        "nom": "MPOUAM VIDAL THURAM",
+        "filiere": "GE",
+        "universite": "IUG",
+        "score": 0
+      },
+      {
+        "matricule": "41",
+        "nom": "TATOHE SINDZE SYLVA",
+        "filiere": "GE",
+        "universite": "EST LA SALLE",
+        "score": 60
+      },
+      {
+        "matricule": "42",
+        "nom": "NONO TCHAGANG LUCIE",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 20
+      },
+      {
+        "matricule": "43",
+        "nom": "BRANDON SCOTT MINONG",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 0
+      },
+      {
+        "matricule": "44",
+        "nom": "TCHAKOUNTE NGUEGANG ANGE",
+        "filiere": "GL",
+        "universite": "IUG",
+        "score": 35
+      },
+      {
+        "matricule": "45",
+        "nom": "TIOMO MATSANOU SHERIFA",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 41
+      },
+      {
+        "matricule": "46",
+        "nom": "KASSI OLINGA KEVIN",
+        "filiere": "GE",
+        "universite": "IUC",
+        "score": 86
+      },
+      {
+        "matricule": "47",
+        "nom": "ASSOUMOU ABAA STEPHANE",
+        "filiere": "GE",
+        "universite": "ISETAG",
+        "score": 45
+      },
+      {
+        "matricule": "48",
+        "nom": "KENGNI DIANE",
+        "filiere": "GR",
+        "universite": "LA PERLE",
+        "score": 30
+      },
+      {
+        "matricule": "49",
+        "nom": "MANGAN JEAN JOSPIN",
+        "filiere": "GE",
+        "universite": "EST LA SALLE",
+        "score": 15
+      },
+      {
+        "matricule": "50",
+        "nom": "MBUTCHA GNAPTSE JOVY",
+        "filiere": "GL",
+        "universite": "IUGET",
+        "score": 5
+      },
+      {
+        "matricule": "51",
+        "nom": "MOUMBE WILFRIED",
+        "filiere": "GR",
+        "universite": "LA PERLE",
+        "score": 95
+      },
+      {
+        "matricule": "53",
+        "nom": "NGANHYIM MBUENSIE PRINCESSE LAILA",
+        "filiere": "GL",
+        "universite": "COLLEGE",
+        "score": 35
+      },
+      {
+        "matricule": "54",
+        "nom": "KENGNE TCHIO SAMIRA",
+        "filiere": "GL",
+        "universite": "IME",
+        "score": 10
+      },
+      {
+        "matricule": "55",
+        "nom": "WAINGIMACBRIDE NGUEYOH KENDONG",
+        "filiere": "GR",
+        "universite": "IUGET",
+        "score": 5
+      },
+      {
+        "matricule": "56",
+        "nom": "SIMO ERIC CABREL",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 30
+      },
+      {
+        "matricule": "57",
+        "nom": "NANGUE NANA YAN",
+        "filiere": "GL",
+        "universite": "IUG",
+        "score": 5
+      },
+      {
+        "matricule": "58",
+        "nom": "NGONTEP SALOME GWLADYS",
+        "filiere": "GE",
+        "universite": "JFN",
+        "score": 35
+      },
+      {
+        "matricule": "59",
+        "nom": "TSAFACK LETENE GAYDEN",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 35
+      },
+      {
+        "matricule": "60",
+        "nom": "NGANDJOU YEUFEU LOVELY",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 36
+      },
+      {
+        "matricule": "61",
+        "nom": "MOULI MBIH THIERRY KEVIN",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 15
+      },
+      {
+        "matricule": "62",
+        "nom": "TACHOM KEMGNE NICOLAS",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 25
+      },
+      {
+        "matricule": "63",
+        "nom": "TCHEDJE STEVE",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 54
+      },
+      {
+        "matricule": "64",
+        "nom": "MVOGO MVOGO CHRISTIAN",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 25
+      },
+      {
+        "matricule": "65",
+        "nom": "FOTSOP TANGANG ANGE PRESLEY",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 40
+      },
+      {
+        "matricule": "66",
+        "nom": "TCHAMDJOU KAMENI DARYL",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 5
+      },
+      {
+        "matricule": "67",
+        "nom": "FOSSOUO GUIFO STEVE",
+        "filiere": "GR",
+        "universite": "IUT",
+        "score": 68
+      },
+      {
+        "matricule": "68",
+        "nom": "SALAMATOU SANI",
+        "filiere": "GR",
+        "universite": "SAINT LOUIS",
+        "score": 30
+      },
+      {
+        "matricule": "69",
+        "nom": "BOGNE YMELE PERESSE",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 47
+      },
+      {
+        "matricule": "70",
+        "nom": "ASSA'TSOP MAJOIE",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 30
+      },
+      {
+        "matricule": "71",
+        "nom": "NANA DJIOPA STEVEN JEFF",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 35
+      },
+      {
+        "matricule": "72",
+        "nom": "DONDJIO BLANKA",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 35
+      },
+      {
+        "matricule": "73",
+        "nom": "FONGUE RYAAN MANUEL",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 10
+      },
+      {
+        "matricule": "74",
+        "nom": "DZOUKOUA NOUNEGNI FLEURINDA",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 30
+      },
+      {
+        "matricule": "75",
+        "nom": "MADANDE MITANGLE THEODRE",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 12
+      },
+      {
+        "matricule": "76",
+        "nom": "CHEKEMWE METOUKAM AUDREY",
+        "filiere": "GR",
+        "universite": "IUT",
+        "score": 40
+      },
+      {
+        "matricule": "77",
+        "nom": "NGUEPNANG NGUEGANG EMILIE",
+        "filiere": "GR",
+        "universite": "IUT",
+        "score": 35
+      },
+      {
+        "matricule": "78",
+        "nom": "NYEMB LOGA MARIUS LANDRY",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 0
+      },
+      {
+        "matricule": "79",
+        "nom": "GUEMNO KETCHIENE TECLAIRE",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 30
+      },
+      {
+        "matricule": "80",
+        "nom": "MBIANDA SIMO DIMITRI",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 5
+      },
+      {
+        "matricule": "81",
+        "nom": "NJUIGNIA NGUEFACK RAYANE AUDREY",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 10
+      },
+      {
+        "matricule": "82",
+        "nom": "FEUGANG CABREL",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 46
+      },
+      {
+        "matricule": "83",
+        "nom": "KEMGANG MIGUEL",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 25
+      },
+      {
+        "matricule": "84",
+        "nom": "NGUENOUE STELLA",
+        "filiere": "GL",
+        "universite": "UD",
+        "score": 20
+      },
+      {
+        "matricule": "85",
+        "nom": "TAMBA OUNGUENE CECILE",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 45
+      },
+      {
+        "matricule": "86",
+        "nom": "BAKOA LUC ERNEST",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 0
+      },
+      {
+        "matricule": "87",
+        "nom": "KAMGA GLORIA",
+        "filiere": "GL",
+        "universite": "IME",
+        "score": 10
+      },
+      {
+        "matricule": "88",
+        "nom": "MBOULE EWANE RAISSAA LA FORTUNE",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 15
+      },
+      {
+        "matricule": "89",
+        "nom": "METSA DONGMO PRINCE",
+        "filiere": "GL",
+        "universite": "UD",
+        "score": 20
+      },
+      {
+        "matricule": "90",
+        "nom": "TAMTO MOKO KLOE SHANICE",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 0
+      },
+      {
+        "matricule": "91",
+        "nom": "ABDOUL AZIZ",
+        "filiere": "GR",
+        "universite": "IUT",
+        "score": 0
+      },
+      {
+        "matricule": "92",
+        "nom": "WOUAFO FRANCK ULRICH",
+        "filiere": "GR",
+        "universite": "IUT",
+        "score": 25
+      },
+      {
+        "matricule": "93",
+        "nom": "NAMENE MIRIAME LAURE",
+        "filiere": "GR",
+        "universite": "IUT",
+        "score": 20
+      },
+      {
+        "matricule": "94",
+        "nom": "FOUGANG ARSENE JUNIOR",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 25
+      },
+      {
+        "matricule": "95",
+        "nom": "NJUEKOU VALDECK",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 5
+      },
+      {
+        "matricule": "96",
+        "nom": "NSAMEZA NODEM RAOUL",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 35
+      },
+      {
+        "matricule": "97",
+        "nom": "DJOUOMDZO BAUDOUIN",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 0
+      },
+      {
+        "matricule": "98",
+        "nom": "OLOKO RALPH",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 69
+      },
+      {
+        "matricule": "99",
+        "nom": "TABONDO NICANOR",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 0
+      },
+      {
+        "matricule": "100",
+        "nom": "SIME MONTHE ULRICH",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 20
+      },
+      {
+        "matricule": "101",
+        "nom": "TOUKAM LAUREINE",
+        "filiere": "GR",
+        "universite": "IUT",
+        "score": 10
+      },
+      {
+        "matricule": "102",
+        "nom": "BOUMMBEN JOYS TIFANE",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 0
+      },
+      {
+        "matricule": "103",
+        "nom": "BIKOE NGOULOUME",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 35
+      },
+      {
+        "matricule": "104",
+        "nom": "BONHA ARIANE",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 61
+      },
+      {
+        "matricule": "105",
+        "nom": "BAKOP TANLOU PHAREL",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 15
+      },
+      {
+        "matricule": "106",
+        "nom": "NDJO BIBOUM BRAYAN",
+        "filiere": "GE",
+        "universite": "EST DE LA SALLE",
+        "score": 10
+      },
+      {
+        "matricule": "107",
+        "nom": "EWANE DAVID",
+        "filiere": "GE",
+        "universite": "JFN",
+        "score": 15
+      },
+      {
+        "matricule": "108",
+        "nom": "DJOJO CLARA OCEANE",
+        "filiere": "GR",
+        "universite": "INSAM",
+        "score": 30
+      },
+      {
+        "matricule": "109",
+        "nom": "FOUDA KELOUTE BRIAN LOIC",
+        "filiere": "GR",
+        "universite": "IUC",
+        "score": 30
+      },
+      {
+        "matricule": "110",
+        "nom": "KENMOGNE FEUHOUO FRANCK",
+        "filiere": "GR",
+        "universite": "671022111",
+        "score": 5
+      },
+      {
+        "matricule": "111",
+        "nom": "NYAMSI KOUEMI YANELLE",
+        "filiere": "GL",
+        "universite": "INSAM",
+        "score": 35
+      },
+      {
+        "matricule": "112",
+        "nom": "TENE MOTHING PRINCE",
+        "filiere": "GE",
+        "universite": "LA PERLE",
+        "score": 69
+      },
+      {
+        "matricule": "113",
+        "nom": "LYONGA EBI OCEANNE",
+        "filiere": "GR",
+        "universite": "IUT",
+        "score": 15
+      },
+      {
+        "matricule": "1001",
+        "nom": "TITTI EMMANUEL STEVE",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 64
+      },
+      {
+        "matricule": "1002",
+        "nom": "KEMMOGNE LOIC",
+        "filiere": "GR",
+        "universite": "INSAM",
+        "score": 35
+      },
+      {
+        "matricule": "1003",
+        "nom": "WAKNI BLANCHE",
+        "filiere": "GL",
+        "universite": "INSAM",
+        "score": 40
+      },
+      {
+        "matricule": "1004",
+        "nom": "BITDJEL JOE BRAYAN",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 30
+      },
+      {
+        "matricule": "1005",
+        "nom": "KEUMENI NZAKOU AROL",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 5
+      },
+      {
+        "matricule": "1029",
+        "nom": "AMOUGANG DIVINE",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 0
+      },
+      {
+        "matricule": "1006",
+        "nom": "DJOUOHOU KOUAKEP",
+        "filiere": "GL",
+        "universite": "IUG",
+        "score": 35
+      },
+      {
+        "matricule": "1007",
+        "nom": "DJOFANG SYNTIA",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 30
+      },
+      {
+        "matricule": "1008",
+        "nom": "EWOLEM FAVOUR",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 0
+      },
+      {
+        "matricule": "1009",
+        "nom": "DOUNGUE NGUEFO ETGAR",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 15
+      },
+      {
+        "matricule": "1010",
+        "nom": "NAOUSSI FONGANG PRINCE",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 0
+      },
+      {
+        "matricule": "1011",
+        "nom": "NDIE NGOMPE WILLIBRORD",
+        "filiere": "GL",
+        "universite": "IUG",
+        "score": 20
+      },
+      {
+        "matricule": "1012",
+        "nom": "NGO KINYOCK ADREINNA",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 0
+      },
+      {
+        "matricule": "1013",
+        "nom": "NANA ALLEN EVANS",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 30
+      },
+      {
+        "matricule": "1014",
+        "nom": "YAKAN A DANG CHRISTIAN",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 0
+      },
+      {
+        "matricule": "1016",
+        "nom": "MOUDJONGUE MTOPI THIERRY",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 30
+      },
+      {
+        "matricule": "1017",
+        "nom": "NGWA NGWA ABEL",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 15
+      },
+      {
+        "matricule": "1018",
+        "nom": "NGAMALEU DJIALHA",
+        "filiere": "GR",
+        "universite": "NON RENSEIGNE",
+        "score": 5
+      },
+      {
+        "matricule": "1019",
+        "nom": "TSOPBOU MBOGNING ANICE",
+        "filiere": "GR",
+        "universite": "IUC",
+        "score": 30
+      },
+      {
+        "matricule": "1020",
+        "nom": "NDJEL BIANGAB EMMANUEL",
+        "filiere": "GR",
+        "universite": "IUG",
+        "score": 35
+      },
+      {
+        "matricule": "1021",
+        "nom": "DJOMESSI JORDAN",
+        "filiere": "GR",
+        "universite": "IUC",
+        "score": 25
+      },
+      {
+        "matricule": "1022",
+        "nom": "YVES STEPHANE PAUL",
+        "filiere": "GL",
+        "universite": "NON RENSEIGNE",
+        "score": 0
+      },
+      {
+        "matricule": "1023",
+        "nom": "YEMELE JEAN - CRESPO",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 0
+      },
+      {
+        "matricule": "1024",
+        "nom": "ASSANDACK MARC",
+        "filiere": "GR",
+        "universite": "NON RENSEIGNE",
+        "score": 10
+      },
+      {
+        "matricule": "1025",
+        "nom": "NDJIOTCHOU NKOUAYEP DILAN",
+        "filiere": "GR",
+        "universite": "NON RENSEIGNE",
+        "score": 0
+      },
+      {
+        "matricule": "115",
+        "nom": "BAKAK FRANCOIS",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 25
+      },
+      {
+        "matricule": "117",
+        "nom": "DIPOKO TAMBA VAOUL-EMERY",
+        "filiere": "GL",
+        "universite": "IUC",
+        "score": 10
+      },
+      {
+        "matricule": "206",
+        "nom": "BEKOU TAGNE STEVE",
+        "filiere": "GL",
+        "universite": "IUG",
+        "score": 5
+      },
+      {
+        "matricule": "119",
+        "nom": "NOUBISSI FRANCESCA",
+        "filiere": "GR",
+        "universite": "LA PERLE",
+        "score": 20
+      },
+      {
+        "matricule": "121",
+        "nom": "TCHOUMENI GOBE MANUELA",
+        "filiere": "GE",
+        "universite": "IUT",
+        "score": 15
+      },
+      {
+        "matricule": "124",
+        "nom": "LAPGWA NANA DORCAS",
+        "filiere": "GL",
+        "universite": "INSAM",
+        "score": 15
+      },
+      {
+        "matricule": "125",
+        "nom": "NOUPA TCHAWOU PASSI MAEL",
+        "filiere": "GR",
+        "universite": "LA SALLE",
+        "score": 10
+      },
+      {
+        "matricule": "126",
+        "nom": "MAGNE MBAH ANGE",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 5
+      },
+      {
+        "matricule": "130",
+        "nom": "FOMEKONG TSOMELOU PASCAL",
+        "filiere": "GL",
+        "universite": "IUG",
+        "score": 15
+      },
+      {
+        "matricule": "131",
+        "nom": "NYAMSI RICHIE",
+        "filiere": "GR",
+        "universite": "657131084",
+        "score": 15
+      },
+      {
+        "matricule": "132",
+        "nom": "NYAMSI EDWIN",
+        "filiere": "GR",
+        "universite": "IAI",
+        "score": 20
+      },
+      {
+        "matricule": "138",
+        "nom": "TCHEMTCHOUA GOBE MURIEL",
+        "filiere": "GL",
+        "universite": "IUT",
+        "score": 15
+      },
+      {
+        "matricule": "168",
+        "nom": "CALEB NANA KOUENI MBAH",
+        "filiere": "GL",
+        "universite": "IUG",
+        "score": 0
+      },
+      {
+        "matricule": "169",
+        "nom": "SIKAPING  KAMMEUGNE PIERRE",
+        "filiere": "GL",
+        "universite": "IUG",
+        "score": 0
+      },
+      {
+        "matricule": "177",
+        "nom": "NZUETAP PRISCA",
+        "filiere": "GR",
+        "universite": "INSAM",
+        "score": 10
+      },
+      {
+        "matricule": "189",
+        "nom": "NGNIMPIEPODJI TEKEU KEVIN",
+        "filiere": "GE",
+        "universite": "LA SALLE",
+        "score": 5
+      },
+      {
+        "matricule": "199",
+        "nom": "CHE HENRY BRIAN",
+        "filiere": "GL",
+        "universite": "IUGET",
+        "score": 5
+      },
+      {
+        "matricule": "214",
+        "nom": "NDANGA EKOUMA ABIGAELLE",
+        "filiere": "GL",
+        "universite": "JFN",
+        "score": 0
+      }
+  ]
+}
