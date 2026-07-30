@@ -116,6 +116,7 @@ $("#optl3").click(function (e) {
 });
 
 const personalScoreTables = Array.from(document.querySelectorAll("#tableau-l2, #tableau-l3"));
+const personalScoreGuide = document.getElementById("personal-score-guide");
 const personalScoreSearch = document.getElementById("personal-score-search");
 const personalScoreFiliere = document.getElementById("personal-score-filiere");
 const personalScoreSortButtons = document.querySelectorAll(".score-sort-button");
@@ -185,25 +186,61 @@ function renderStudentStatus(status) {
   `;
 }
 
-function renderScoreGuideRows() {
+function getScoreGuideStatuses() {
   return [
     getStudentStatus(0),
     getStudentStatus(300),
     getStudentStatus(601),
-  ]
-    .map(function (status) {
+  ];
+}
+
+function renderScoreGuide() {
+  if (!personalScoreGuide) {
+    return;
+  }
+
+  personalScoreGuide.innerHTML = getScoreGuideStatuses()
+    .map(function (status, index) {
       return `
-        <tr class="score-guide-row">
-          <td class="rank-cell" data-label="Rang">&#127942;</td>
-          <td class="particulier" data-label="Nom">Guide</td>
-          <td data-label="STATUT">${renderStudentStatus(status)}</td>
-          <td data-label="Filiere">${escapeHtml(status.rule)}</td>
-          <td data-label="Universite">Palier de score</td>
-          <td data-label="Score">${escapeHtml(status.scoreLabel)}</td>
-        </tr>
+        <article class="score-guide-item">
+          <button
+            type="button"
+            class="score-guide-toggle"
+            aria-expanded="false"
+            aria-controls="score-guide-panel-${index}"
+            data-guide-index="${index}"
+          >
+            ${renderStudentStatus(status)}
+          </button>
+          <div class="score-guide-panel" id="score-guide-panel-${index}">
+            <span>${escapeHtml(status.rule)}</span>
+            <strong>Score: ${escapeHtml(status.scoreLabel)}</strong>
+          </div>
+        </article>
       `;
     })
     .join("");
+}
+
+function assignGlobalRanks(candidates) {
+  const rankedCandidates = candidates
+    .slice()
+    .sort(function (firstCandidate, secondCandidate) {
+      const scoreDifference = Number(secondCandidate.score || 0) - Number(firstCandidate.score || 0);
+      if (scoreDifference !== 0) {
+        return scoreDifference;
+      }
+
+      return String(firstCandidate.nom).localeCompare(String(secondCandidate.nom), "fr", {
+        sensitivity: "base",
+      });
+    });
+
+  rankedCandidates.forEach(function (candidate, index) {
+    candidate.globalRank = index + 1;
+  });
+
+  return candidates;
 }
 
 function getVisiblePersonalScores() {
@@ -242,11 +279,11 @@ function renderPersonalScores() {
   const visibleCandidates = getVisiblePersonalScores();
 
   const rows = visibleCandidates
-    .map(function (candidate, index) {
-      const rank = index + 1;
+    .map(function (candidate) {
+      const rank = candidate.globalRank;
       const candidateKey = getCandidateKey(candidate);
       const status = getStudentStatus(candidate.score);
-      const shouldMaskScore = rank <= 10 && !revealedTopScores.has(candidateKey);
+      const shouldMaskScore = candidate.globalRank <= 10 && !revealedTopScores.has(candidateKey);
       const scoreContent = shouldMaskScore
         ? `<button type="button" class="reveal-score-button" data-candidate-key="${escapeHtml(
             candidateKey
@@ -278,7 +315,6 @@ function renderPersonalScores() {
       </tr>
     </thead>
     <tbody>
-      ${renderScoreGuideRows()}
       ${
         rows ||
         `<tr><td colspan="6" class="score-empty-state">No candidate found.</td></tr>`
@@ -402,6 +438,20 @@ function bindPersonalScoreEvents() {
       }
     });
   });
+
+  personalScoreGuide?.addEventListener("click", function (event) {
+    const toggle = event.target.closest(".score-guide-toggle");
+    if (!toggle) {
+      return;
+    }
+
+    personalScoreGuide.querySelectorAll(".score-guide-toggle").forEach(function (guideToggle) {
+      const isSelectedToggle = guideToggle === toggle;
+      const isOpen = isSelectedToggle && guideToggle.getAttribute("aria-expanded") !== "true";
+      guideToggle.setAttribute("aria-expanded", String(isOpen));
+      guideToggle.closest(".score-guide-item")?.classList.toggle("open", isOpen);
+    });
+  });
 }
 
 function loadPersonalScores() {
@@ -433,8 +483,9 @@ function loadPersonalScores() {
       return response.json();
     })
     .then(function (data) {
-      personalScoreCandidates = Array.isArray(data.candidates) ? data.candidates : [];
+      personalScoreCandidates = assignGlobalRanks(Array.isArray(data.candidates) ? data.candidates : []);
       fillFiliereFilter();
+      renderScoreGuide();
       renderPersonalScores();
     })
     .catch(function () {
