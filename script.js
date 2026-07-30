@@ -194,12 +194,12 @@ function renderScoreGuideRows() {
     .map(function (status) {
       return `
         <tr class="score-guide-row">
-          <td class="rank-cell">&#127942;</td>
-          <td class="particulier">Guide</td>
-          <td>${renderStudentStatus(status)}</td>
-          <td>${escapeHtml(status.rule)}</td>
-          <td>Palier de score</td>
-          <td>${escapeHtml(status.scoreLabel)}</td>
+          <td class="rank-cell" data-label="Rang">&#127942;</td>
+          <td class="particulier" data-label="Nom">Guide</td>
+          <td data-label="STATUT">${renderStudentStatus(status)}</td>
+          <td data-label="Filiere">${escapeHtml(status.rule)}</td>
+          <td data-label="Universite">Palier de score</td>
+          <td data-label="Score">${escapeHtml(status.scoreLabel)}</td>
         </tr>
       `;
     })
@@ -255,12 +255,12 @@ function renderPersonalScores() {
 
       return `
         <tr>
-          <td class="rank-cell">${rank}</td>
-          <td class="particulier">${escapeHtml(candidate.nom)}</td>
-          <td>${renderStudentStatus(status)}</td>
-          <td>${escapeHtml(candidate.filiere)}</td>
-          <td>${escapeHtml(candidate.universite)}</td>
-          <td>${scoreContent}</td>
+          <td class="rank-cell" data-label="Rang">${rank}</td>
+          <td class="particulier" data-label="Nom">${escapeHtml(candidate.nom)}</td>
+          <td data-label="STATUT">${renderStudentStatus(status)}</td>
+          <td data-label="Filiere">${escapeHtml(candidate.filiere)}</td>
+          <td data-label="Universite">${escapeHtml(candidate.universite)}</td>
+          <td data-label="Score">${scoreContent}</td>
         </tr>
       `;
     })
