@@ -100,6 +100,25 @@
           <div class="tableau" style=" display: flex;
               flex-direction: column; align-items: center;">
             <h1 style="color:  #6907fa;margin-top: 5%; font-size: larger;"> Check your personal Score!</h1>
+            <div class="score-controls" aria-label="Personal score filters">
+              <label class="score-control">
+                <span>Search your name</span>
+                <input type="search" id="personal-score-search" placeholder="Type a name">
+              </label>
+              <label class="score-control">
+                <span>Filter by filiere</span>
+                <select id="personal-score-filiere">
+                  <option value="">All filieres</option>
+                </select>
+              </label>
+              <div class="score-control">
+                <span>Sort results</span>
+                <div class="score-sort-actions" role="group" aria-label="Sort personal scores">
+                  <button type="button" class="score-sort-button" data-sort="name">Name A-Z</button>
+                  <button type="button" class="score-sort-button active" data-sort="score">Score</button>
+                </div>
+              </div>
+            </div>
             <table class="headtab" id="tableau-l2"><tr>
                 <th>Nom</th>
                 <th>STATUT</th>
