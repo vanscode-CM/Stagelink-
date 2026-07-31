@@ -153,7 +153,7 @@ function getStudentStatus(score) {
 
   if (numericScore > 600) {
     return {
-      label: "Diamond Student",
+      label: "Étudiant Diamond",
       icon: "images/diamond.png",
       rule: "Plus de 600 points",
       scoreLabel: "> 600",
@@ -162,7 +162,7 @@ function getStudentStatus(score) {
 
   if (numericScore >= 300) {
     return {
-      label: "Gold Student",
+      label: "Étudiant Gold",
       icon: "images/coin.png",
       rule: "300 \u00e0 600 points",
       scoreLabel: ">= 300",
@@ -170,7 +170,7 @@ function getStudentStatus(score) {
   }
 
   return {
-    label: "Standard Student",
+    label: "Étudiant Standard",
     icon: "images/dollar.png",
     rule: "Moins de 300 points",
     scoreLabel: "< 300",
@@ -214,7 +214,7 @@ function renderScoreGuide() {
           </button>
           <div class="score-guide-panel" id="score-guide-panel-${index}">
             <span>${escapeHtml(status.rule)}</span>
-            <strong>Score: ${escapeHtml(status.scoreLabel)}</strong>
+            <strong>Score : ${escapeHtml(status.scoreLabel)}</strong>
           </div>
         </article>
       `;
@@ -287,16 +287,16 @@ function renderPersonalScores() {
       const scoreContent = shouldMaskScore
         ? `<button type="button" class="reveal-score-button" data-candidate-key="${escapeHtml(
             candidateKey
-          )}">Reveal</button>`
+          )}">Afficher le score</button>`
         : `<span class="score-value">${escapeHtml(candidate.score)} pts</span>`;
 
       return `
-        <tr>
+        <tr class="score-candidate-row">
           <td class="rank-cell" data-label="Rang">${rank}</td>
           <td class="particulier" data-label="Nom">${escapeHtml(candidate.nom)}</td>
           <td data-label="STATUT">${renderStudentStatus(status)}</td>
-          <td data-label="Filiere">${escapeHtml(candidate.filiere)}</td>
-          <td data-label="Universite">${escapeHtml(candidate.universite)}</td>
+          <td data-label="Filière">${escapeHtml(candidate.filiere)}</td>
+          <td data-label="Université">${escapeHtml(candidate.universite)}</td>
           <td data-label="Score">${scoreContent}</td>
         </tr>
       `;
@@ -309,15 +309,15 @@ function renderPersonalScores() {
         <th>Rang</th>
         <th>Nom</th>
         <th>STATUT</th>
-        <th>Filiere</th>
-        <th>Universite</th>
+        <th>Filière</th>
+        <th>Université</th>
         <th>Score</th>
       </tr>
     </thead>
     <tbody>
       ${
         rows ||
-        `<tr><td colspan="6" class="score-empty-state">No candidate found.</td></tr>`
+        `<tr><td colspan="6" class="score-empty-state">Aucun candidat trouvé.</td></tr>`
       }
     </tbody>
   `;
@@ -340,7 +340,7 @@ function fillFiliereFilter() {
     return firstFiliere.localeCompare(secondFiliere, "fr", { sensitivity: "base" });
   });
 
-  personalScoreFiliere.innerHTML = '<option value="">All filieres</option>';
+  personalScoreFiliere.innerHTML = '<option value="">Toutes les filières</option>';
   filieres.forEach(function (filiere) {
     const option = document.createElement("option");
     option.value = filiere;
@@ -383,10 +383,10 @@ function showScorePopup(candidate) {
   popup.innerHTML = `
     <div class="score-popup" role="dialog" aria-modal="true" aria-labelledby="score-popup-title">
       <div class="score-trophy" aria-hidden="true">&#127942;</div>
-      <p class="score-popup-kicker">Congratulations candidate</p>
+      <p class="score-popup-kicker">Félicitations</p>
       <h2 id="score-popup-title">${escapeHtml(candidate.nom)}</h2>
       <p class="score-popup-points">${escapeHtml(candidate.score)} points</p>
-      <button type="button" class="score-popup-close">Close</button>
+      <button type="button" class="score-popup-close">Fermer</button>
     </div>
   `;
   document.body.appendChild(popup);
@@ -417,8 +417,56 @@ function revealCandidateScore(candidateKey) {
   showScorePopup(candidate);
 }
 
+function getActivePersonalScoreTable() {
+  return (
+    personalScoreTables.find(function (scoreTable) {
+      const style = window.getComputedStyle(scoreTable);
+      const rect = scoreTable.getBoundingClientRect();
+      return style.display !== "none" && rect.width > 0 && rect.height > 0;
+    }) || personalScoreTables[0]
+  );
+}
+
+function scrollToFirstPersonalScoreResult() {
+  requestAnimationFrame(function () {
+    const activeTable = getActivePersonalScoreTable();
+    const target = activeTable?.querySelector(".score-candidate-row, .score-empty-state");
+
+    if (!target) {
+      return;
+    }
+
+    const isMobile = window.matchMedia("(max-width: 760px)").matches;
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: isMobile ? "center" : "nearest",
+    });
+  });
+}
+
+function submitPersonalScoreSearch() {
+  renderPersonalScores();
+  personalScoreSearch?.blur();
+  scrollToFirstPersonalScoreResult();
+}
+
 function bindPersonalScoreEvents() {
   personalScoreSearch?.addEventListener("input", renderPersonalScores);
+  personalScoreSearch?.addEventListener("keydown", function (event) {
+    if (event.key !== "Enter") {
+      return;
+    }
+
+    event.preventDefault();
+    submitPersonalScoreSearch();
+  });
+  personalScoreSearch?.addEventListener("search", function () {
+    renderPersonalScores();
+
+    if (personalScoreSearch.value.trim()) {
+      submitPersonalScoreSearch();
+    }
+  });
   personalScoreFiliere?.addEventListener("change", renderPersonalScores);
   personalScoreSortButtons.forEach(function (button) {
     button.addEventListener("click", function () {
@@ -472,13 +520,13 @@ function loadPersonalScores() {
 
   personalScoreTables.forEach(function (scoreTable) {
     scoreTable.innerHTML =
-      '<tbody><tr><td class="score-empty-state">Loading personal scores...</td></tr></tbody>';
+      '<tbody><tr><td class="score-empty-state">Chargement des scores personnels...</td></tr></tbody>';
   });
 
   fetch("data/stagelink_points.json")
     .then(function (response) {
       if (!response.ok) {
-        throw new Error("Unable to load personal scores");
+        throw new Error("Impossible de charger les scores personnels");
       }
       return response.json();
     })
@@ -491,7 +539,7 @@ function loadPersonalScores() {
     .catch(function () {
       personalScoreTables.forEach(function (scoreTable) {
         scoreTable.innerHTML =
-          '<tbody><tr><td class="score-empty-state">Personal scores are currently unavailable.</td></tr></tbody>';
+          '<tbody><tr><td class="score-empty-state">Les scores personnels sont momentanément indisponibles.</td></tr></tbody>';
       });
     });
 }

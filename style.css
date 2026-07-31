@@ -503,6 +503,32 @@ align-items: center;
     overflow-x: hidden;
   }
 
+  .video-container {
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border-radius: 0;
+  }
+
+  .video-container video {
+    top: 50%;
+    left: 50%;
+    width: min(92vw, 420px);
+    max-width: calc(100vw - 24px);
+    height: auto;
+    margin: 0;
+    transform: translate(-50%, -56%);
+  }
+
+  #stop-video {
+    top: auto;
+    right: auto;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
   *,
   *::before,
   *::after {
