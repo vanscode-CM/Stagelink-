@@ -4169,7 +4169,41 @@
 
         </section>
           <script src="jquery-3.7.1.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260731-feedback2"></script>
+  <script>
+    (function () {
+      function getActiveScoreTable() {
+        return Array.from(document.querySelectorAll("#tableau-l2, #tableau-l3")).find(function (table) {
+          var style = window.getComputedStyle(table);
+          var rect = table.getBoundingClientRect();
+          return style.display !== "none" && rect.width > 0 && rect.height > 0;
+        });
+      }
+
+      function scrollToScoreFeedback() {
+        requestAnimationFrame(function () {
+          var activeTable = getActiveScoreTable();
+          var target = activeTable && activeTable.querySelector(".score-candidate-row, .score-empty-state");
+
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          }
+        });
+      }
+
+      var filiereFilter = document.getElementById("personal-score-filiere");
+      if (filiereFilter) {
+        filiereFilter.addEventListener("change", scrollToScoreFeedback);
+      }
+
+      document.querySelectorAll(".score-sort-button").forEach(function (button) {
+        button.addEventListener("click", scrollToScoreFeedback);
+      });
+    })();
+  </script>
 
 
 

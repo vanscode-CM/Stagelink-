@@ -427,7 +427,7 @@ function getActivePersonalScoreTable() {
   );
 }
 
-function scrollToFirstPersonalScoreResult() {
+function scrollToFirstPersonalScoreResult(options = {}) {
   requestAnimationFrame(function () {
     const activeTable = getActivePersonalScoreTable();
     const target = activeTable?.querySelector(".score-candidate-row, .score-empty-state");
@@ -437,6 +437,14 @@ function scrollToFirstPersonalScoreResult() {
     }
 
     const isMobile = window.matchMedia("(max-width: 760px)").matches;
+    if (options.force) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      return;
+    }
+
     target.scrollIntoView({
       behavior: "smooth",
       block: isMobile ? "center" : "nearest",
@@ -448,6 +456,11 @@ function submitPersonalScoreSearch() {
   renderPersonalScores();
   personalScoreSearch?.blur();
   scrollToFirstPersonalScoreResult();
+}
+
+function applyPersonalScoreControls() {
+  renderPersonalScores();
+  scrollToFirstPersonalScoreResult({ force: true });
 }
 
 function bindPersonalScoreEvents() {
@@ -467,14 +480,14 @@ function bindPersonalScoreEvents() {
       submitPersonalScoreSearch();
     }
   });
-  personalScoreFiliere?.addEventListener("change", renderPersonalScores);
+  personalScoreFiliere?.addEventListener("change", applyPersonalScoreControls);
   personalScoreSortButtons.forEach(function (button) {
     button.addEventListener("click", function () {
       personalScoreSort = button.dataset.sort;
       personalScoreSortButtons.forEach(function (sortButton) {
         sortButton.classList.toggle("active", sortButton === button);
       });
-      renderPersonalScores();
+      applyPersonalScoreControls();
     });
   });
 

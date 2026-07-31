@@ -410,6 +410,10 @@ justify-content: space-between;
   font-size: 18px;
   color: #4f3b70;
 }
+.score-candidate-row,
+.score-empty-state {
+  scroll-margin-top: 90px;
+}
 .confetti-layer {
   position: fixed;
   inset: 0;
@@ -630,6 +634,13 @@ align-items: center;
     background-color: white;
     box-shadow: 0 10px 24px rgba(20, 8, 43, 0.12);
     overflow: hidden;
+  }
+
+  #tableau-l2 .score-candidate-row,
+  #tableau-l3 .score-candidate-row,
+  #tableau-l2 .score-empty-state,
+  #tableau-l3 .score-empty-state {
+    scroll-margin-top: 120px;
   }
 
   #tableau-l2 tr:hover,
