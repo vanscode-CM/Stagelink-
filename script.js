@@ -148,6 +148,17 @@ function getCandidateKey(candidate) {
   return `${candidate.matricule}-${candidate.nom}`;
 }
 
+function compareCandidatesByScoreThenName(firstCandidate, secondCandidate) {
+  const scoreDifference = Number(secondCandidate.score || 0) - Number(firstCandidate.score || 0);
+  if (scoreDifference !== 0) {
+    return scoreDifference;
+  }
+
+  return String(firstCandidate.nom).localeCompare(String(secondCandidate.nom), "fr", {
+    sensitivity: "base",
+  });
+}
+
 function getStudentStatus(score) {
   const numericScore = Number(score || 0);
 
@@ -225,19 +236,34 @@ function renderScoreGuide() {
 function assignGlobalRanks(candidates) {
   const rankedCandidates = candidates
     .slice()
-    .sort(function (firstCandidate, secondCandidate) {
-      const scoreDifference = Number(secondCandidate.score || 0) - Number(firstCandidate.score || 0);
-      if (scoreDifference !== 0) {
-        return scoreDifference;
-      }
-
-      return String(firstCandidate.nom).localeCompare(String(secondCandidate.nom), "fr", {
-        sensitivity: "base",
-      });
-    });
+    .sort(compareCandidatesByScoreThenName);
 
   rankedCandidates.forEach(function (candidate, index) {
     candidate.globalRank = index + 1;
+  });
+
+  return candidates;
+}
+
+function assignFiliereRanks(candidates) {
+  const candidatesByFiliere = candidates.reduce(function (groups, candidate) {
+    const filiere = candidate.filiere || "";
+
+    if (!groups[filiere]) {
+      groups[filiere] = [];
+    }
+
+    groups[filiere].push(candidate);
+    return groups;
+  }, {});
+
+  Object.values(candidatesByFiliere).forEach(function (filiereCandidates) {
+    filiereCandidates
+      .slice()
+      .sort(compareCandidatesByScoreThenName)
+      .forEach(function (candidate, index) {
+        candidate.filiereRank = index + 1;
+      });
   });
 
   return candidates;
@@ -265,9 +291,7 @@ function getVisiblePersonalScores() {
       return scoreDifference;
     }
 
-    return String(firstCandidate.nom).localeCompare(String(secondCandidate.nom), "fr", {
-      sensitivity: "base",
-    });
+    return compareCandidatesByScoreThenName(firstCandidate, secondCandidate);
   });
 }
 
@@ -277,13 +301,16 @@ function renderPersonalScores() {
   }
 
   const visibleCandidates = getVisiblePersonalScores();
+  const hasFiliereFilter = Boolean(personalScoreFiliere?.value);
 
   const rows = visibleCandidates
     .map(function (candidate) {
-      const rank = candidate.globalRank;
+      const rank = hasFiliereFilter ? candidate.filiereRank : candidate.globalRank;
       const candidateKey = getCandidateKey(candidate);
       const status = getStudentStatus(candidate.score);
-      const shouldMaskScore = candidate.globalRank <= 10 && !revealedTopScores.has(candidateKey);
+      const shouldMaskScore =
+        (hasFiliereFilter ? candidate.filiereRank <= 5 : candidate.globalRank <= 10) &&
+        !revealedTopScores.has(candidateKey);
       const scoreContent = shouldMaskScore
         ? `<button type="button" class="reveal-score-button" data-candidate-key="${escapeHtml(
             candidateKey
@@ -544,7 +571,9 @@ function loadPersonalScores() {
       return response.json();
     })
     .then(function (data) {
-      personalScoreCandidates = assignGlobalRanks(Array.isArray(data.candidates) ? data.candidates : []);
+      personalScoreCandidates = assignFiliereRanks(
+        assignGlobalRanks(Array.isArray(data.candidates) ? data.candidates : [])
+      );
       fillFiliereFilter();
       renderScoreGuide();
       renderPersonalScores();
